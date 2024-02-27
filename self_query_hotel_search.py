@@ -19,7 +19,7 @@ import pandas as pd
 import json
 import os
 
-data_root = r'../data/'
+data_root = r'./data/'
 
 def load(data_root):
     details = (pd.read_csv(os.path.join(data_root, 'Hotel_details.csv')).
@@ -31,6 +31,7 @@ def load(data_root):
 
     return details, attributes, price
 
+details, attributes, price = load(data_root=data_root)
 
 latest_price = price.drop_duplicates(subset="refid", keep="last")[
     [
